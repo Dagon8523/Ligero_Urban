@@ -352,6 +352,7 @@
       border: 1px solid var(--border);
       background: #fff;
       outline: none;
+      
     }
 
     .products-grid {
@@ -375,12 +376,14 @@
     }
 
     .card-image {
+      position: relative;
       height: 320px;
       display: flex;
       align-items: center;
       justify-content: center;
       background: #f5f5f5;
       border-radius: 16px;
+      overflow: hidden;
     }
 
     .card-image img {
@@ -404,6 +407,7 @@
       border-radius: 999px;
       font-size: 0.76rem;
       font-weight: 700;
+      z-index: 2;
     }
 
     .card-body {
