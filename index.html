@@ -375,17 +375,18 @@
     }
 
     .card-image {
-      position: relative;
-      aspect-ratio: 4 / 5;
-      overflow: hidden;
-      background: var(--light-gray);
+      height: 320px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #f5f5f5;
+      border-radius: 16px;
     }
 
     .card-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.35s ease;
+      max-height: 100%;
+      max-width: 100%;
+      object-fit: contain;
     }
 
     .card:hover .card-image img {
@@ -541,6 +542,74 @@
       font-family: 'Playfair Display', serif;
       font-size: 1.5rem;
     }
+
+    .image-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 120;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+    .image-modal.active {
+      display: flex;
+    }
+
+    .image-modal-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.82);
+    }
+
+    .image-modal-content {
+      position: relative;
+      z-index: 2;
+      width: min(92vw, 1100px);
+      height: min(88vh, 900px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      cursor: zoom-in;
+    }
+
+    .image-modal-content img {
+      max-width: 100%;
+      max-height: 100%;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      transform: scale(1);
+      transform-origin: center center;
+      transition: transform 0.15s ease;
+      user-select: none;
+      pointer-events: none;
+    }
+
+    .image-modal-close {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      width: 42px;
+      height: 42px;
+      border: none;
+      border-radius: 50%;
+      background: #fff;
+      color: #111;
+      font-size: 1.2rem;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+      z-index: 3;
+    }
+
+    .card-image img {
+      cursor: zoom-in;
+    }
+
+
 
     .close-btn {
       border: none;
@@ -873,11 +942,8 @@
 
             <div class="carousel-content">
               <div class="eyebrow">Accesorios premium · compra sencilla</div>
-              <h1>Jeans con estilo urbano, camisetas , accesorios , compra rápida y sin complicaciones.</h1>
-              <p>
-                En Ligero Urban queremos que encontrar tu estilo ideal. Explora nuestros modelos,
-                agrégalos al carrito o escríbenos por WhatsApp para recibir atención personalizada.
-              </p>
+              <h1>Jeans con estilo urbano, camisetas , accesorios</h1>
+            
               <div style="display:flex; gap:12px; flex-wrap:wrap;">
                 <a class="btn btn-primary" href="#catalogo">Explorar colección</a>
                 <a class="btn btn-whatsapp" id="heroWhatsappLink" target="_blank" rel="noopener">Hablar por WhatsApp</a>
@@ -900,13 +966,14 @@
         <div class="section-head">
           <div>
             <h2>Nuestra colección</h2>
-            <p>Diseño limpio, productos visibles y proceso de compra simple para todo público.</p>
+            <p>  En Ligero Urban queremos que encontrar tu estilo ideal. Explora nuestros modelos,
+                agrégalos al carrito o escríbenos por WhatsApp para recibir atención personalizada.</p>
           </div>
         </div>
 
         <div class="toolbar">
           <div class="search">
-            <input type="text" id="searchInput" placeholder="Buscar articulo por nombre..." />
+            <input type="text" id="searchInput" placeholder="Buscar articulo por nombre o color " />
           </div>
           <select class="filter-select" id="categoryFilter">
             <option value="all">Todos los productos</option>
@@ -925,7 +992,7 @@
     <div class="container footer-wrap">
       <div>
         <div class="footer-brand">Ligero Urban</div>
-        <div style="margin-top:8px; color:rgba(255,255,255,0.72);">Moda denim urbana con una experiencia de compra directa y sencilla.</div>
+        <div style="margin-top:8px; color:rgba(255,255,255,0.72);">Moda  urbana con una experiencia de estilo y sencilla.</div>
       </div>
       <div style="color:rgba(255,255,255,0.72);">© 2026 Ligero Urban · Bogotá, Colombia</div>
     </div>
@@ -1003,6 +1070,14 @@
     </div>
   </div>
 
+<div class="image-modal" id="imageModal" aria-hidden="true">
+  <div class="image-modal-overlay" onclick="closeImageModal()"></div>
+  <div class="image-modal-content">
+    <button class="image-modal-close" type="button" onclick="closeImageModal()" aria-label="Cerrar imagen">✕</button>
+    <img id="modalProductImage" src="" alt="Vista ampliada del producto" />
+  </div>
+</div>
+
   <script>
     const WHATSAPP_NUMBER = '573057896246'; // REEMPLAZA ESTE NÚMERO POR EL DE LA TIENDA
 
@@ -1018,7 +1093,16 @@
     const products = [
             { id: 1, name: 'Jean Urban Slim Azul Oscuro', price: 129900, size: '30,32,34,36', category: 'jeans', image: "Imagenes/Jeans/DSC03925.JPG", desc: 'Corte slim, denim premium y ajuste cómodo para uso diario.' },
             { id: 2, name: 'Jean Regular Indigo Clásico', price: 9900, size: '30,32,34,36', category: 'jeans', image: "Imagenes/Jeans/DSC03926.JPG", desc: 'Corte slim, denim premium y ajuste cómodo para uso diario.' },
+               { id: 38, name: 'Camiseta Selección Colombia', price: 99000, size: 'M,S,L,XL', category: 'camisetas', image: "Imagenes/Camisetas/COLO_001.jpg", desc: 'Camiseta Selección Colombia 2024-2025 local amarilla versión jugador' },
+            { id: 39, name: 'Camiseta Selección Colombia', price: 99000, size: 'M,S,L,XL', category: 'camisetas', image: "Imagenes/Camisetas/COLO_002.jpg", desc: 'Camiseta Selección Colombia 2024-2025 local amarilla versión jugador' },
+            { id: 40, name: 'Camiseta Selección Colombia', price: 99000, size: 'M,S,L,XL', category: 'camisetas', image: "Imagenes/Camisetas/COLO_003.jpg", desc: 'Camiseta Selección Colombia Caballero Negra AAA 1.1 Tallas S-M-L-XL Full Calidad ' },
             { id: 3, name: 'Jean Mom Fit Light Blue', price: 129900, size: '30,32,34,36', category: 'jeans', image: "Imagenes/Jeans/DSC03927.JPG", desc: 'Corte slim, denim premium y ajuste cómodo para uso diario.' },
+            { id: 41, name: 'Set X 4 Boxer Multicolor Calvin Klein', price: 150000, size: 'M,S,L,XL', category: 'accesorios', image: "Imagenes/Accesorios/BOX_001.webp", desc: 'Set X 4 Boxer Multicolor Calvin Klein' },
+            { id: 42, name: 'Set X 4 Boxer Multicolor Calvin Klein', price: 150000, size: 'M,S,L,XL', category: 'accesorios', image: "Imagenes/Accesorios/BOX_002.webp", desc: 'Set X 4 Boxer Multicolor Calvin Klein' },
+            { id: 43, name: 'Set X 4 Boxer Multicolor Calvin Klein', price: 150000, size: 'M,S,L,XL', category: 'accesorios', image: "Imagenes/Accesorios/BOX_003.jpg", desc: 'Set X 4 Boxer Multicolor Calvin Klein' },
+            { id: 44, name: 'Nike Gorra Structured Trucker Cap ', price: 150000, size: 'M,S,L,XL', category: 'accesorios', image: "Imagenes/Accesorios/GORRA_001.avif", desc: 'Gorra Sin Estructura Nike Dri-Fit Club Featherlight' },
+            { id: 45, name: 'Nike Gorra Structured Trucker Cap ', price: 150000, size: 'M,S,L,XL', category: 'accesorios', image: "Imagenes/Accesorios/GORRA_002.jpg", desc: 'Gorra Sin Estructura Nike Dri-Fit Club Featherlight' },
+            { id: 46, name: 'Nike Gorra Structured Trucker Cap ', price: 150000, size: 'M,S,L,XL', category: 'accesorios', image: "Imagenes/Accesorios/GORRA_003.jpg", desc: 'Gorra Sin Estructura Nike Dri-Fit Club Featherlight' },
             { id: 4, name: 'Jean Skinny Negro Premium', price: 229900, size: '30,32,34,36', category: 'jeans', image: "Imagenes/Jeans/DSC03928.JPG", desc: 'Corte slim, denim premium y ajuste cómodo para uso diario.' },
             { id: 5, name: 'Jean Cargo Urban Gray', price: 229900, size: '30,32,34,36', category: 'jeans', image: "Imagenes/Jeans/DSC03929.JPG", desc: 'Corte slim, denim premium y ajuste cómodo para uso diario.' },
             { id: 6, name: 'Jean Slim Blue Vintage', price: 109900, size: '30,32,34,36', category: 'jeans', image: "Imagenes/Jeans/DSC03932.JPG", desc: 'Corte slim, denim premium y ajuste cómodo para uso diario.' },
@@ -1054,6 +1138,8 @@
             { id: 35, name: 'Jean Urban Slim Azul Oscuro', price: 129900, size: '30,32,34,36', category: 'jeans', image: "Imagenes/Jeans/DSC04011.JPG", desc: 'Corte slim, denim premium y ajuste cómodo para uso diario.' },
             { id: 36, name: 'Jean Urban Slim Azul Oscuro', price: 129900, size: '30,32,34,36', category: 'jeans', image: "Imagenes/Jeans/DSC04013.JPG", desc: 'Corte slim, denim premium y ajuste cómodo para uso diario.' },
             { id: 37, name: 'Jean Cargo Urban Gray', price: 129900, size: '30,32,34,36', category: 'jeans', image: "Imagenes/Jeans/DSC04022.JPG", desc: 'Corte slim, denim premium y ajuste cómodo para uso diario.' }
+         
+            
 
 
       
@@ -1073,6 +1159,11 @@
     const checkoutForm = document.getElementById('checkoutForm');
     const floatingWhatsapp = document.getElementById('floatingWhatsapp');
     const heroWhatsappLink = document.getElementById('heroWhatsappLink');
+    const imageModal = document.getElementById('imageModal');
+    const modalProductImage = document.getElementById('modalProductImage'); 
+    let scale = 1;
+    const minScale = 1;
+    const maxScale = 3;
 
     const slides = document.querySelectorAll('.carousel-slide');
     const dotsContainer = document.getElementById('carouselDots');
@@ -1098,6 +1189,24 @@
       floatingWhatsapp.href = link;
       heroWhatsappLink.href = link;
     }
+    function openImageModal(imageSrc, imageAlt) {
+      modalProductImage.src = imageSrc;
+      modalProductImage.alt = imageAlt || 'Vista ampliada del producto';
+        scale = 1;
+        modalProductImage.style.transform = `scale(${scale})`;
+
+        imageModal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeImageModal() {
+      imageModal.classList.remove('active');
+      modalProductImage.src = '';
+      document.body.style.overflow = '';
+      scale = 1;
+    }
+    
+    
 
     function renderProducts() {
       const searchTerm = searchInput.value.trim().toLowerCase();
@@ -1115,7 +1224,7 @@
           <article class="card">
             <div class="card-image">
               <span class="badge">${product.category}</span>
-              <img src="${product.image}" alt="${product.name}" loading="lazy">
+              <img src="${product.image}" alt="${product.name}" loading="lazy" onclick="openImageModal('${product.image}', '${product.name}')">
             </div>
             <div class="card-body">
               <h3 class="card-title">${product.name}</h3>
@@ -1222,8 +1331,26 @@
       if (e.target === cartModal) closeCart();
     });
 
+    imageModal.addEventListener('wheel', (e) => {
+      if (!imageModal.classList.contains('active')) return;
+
+      e.preventDefault();
+
+      if (e.deltaY < 0) {
+        scale += 0.15;
+      } else {
+        scale -= 0.15;
+      }
+
+      scale = Math.min(Math.max(scale, minScale), maxScale);
+      modalProductImage.style.transform = `scale(${scale})`;
+    }, { passive: false });
+
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') closeCart();
+      if (e.key === 'Escape') {
+        closeCart();
+        closeImageModal();
+      }
     });
 
     searchInput.addEventListener('input', renderProducts);
@@ -1236,6 +1363,8 @@
         alert('Agrega al menos un producto al carrito antes de enviar el pedido.');
         return;
       }
+
+
 
       const firstName = document.getElementById('firstName').value.trim();
       const lastName = document.getElementById('lastName').value.trim();
