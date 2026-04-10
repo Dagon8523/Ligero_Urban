@@ -1039,10 +1039,6 @@
               <span>Total de unidades</span>
               <strong id="summaryUnits">0</strong>
             </div>
-            <div class="summary-total">
-              <span>Total pedido</span>
-              <span id="summaryTotal">$0</span>
-            </div>
           </div>
         </div>
 
@@ -1083,7 +1079,7 @@
 </div>
 
   <script>
-    const WHATSAPP_NUMBER = '573057896246'; // REEMPLAZA ESTE NÚMERO POR EL DE LA TIENDA
+    const WHATSAPP_NUMBER = '573134775609'; // REEMPLAZA ESTE NÚMERO POR EL DE LA TIENDA
 
     const promoImages = [
       'https://images.unsplash.com/photo-1542272604-787c3835535d?auto=format&fit=crop&w=1400&q=80',
@@ -1095,53 +1091,53 @@
     ];
 
     const products = [
-            { id: 1, name: 'Jean Urban Slim Azul Oscuro', price: 129900, size: '36', category: 'jeans', image: "Imagenes/Jeans/DSC03925.JPG", desc: 'Corte slim, denim premium y ajuste cómodo para uso diario.' },
-            { id: 2, name: 'Jean Regular Indigo Clásico', price: 9900, size: '30', category: 'jeans', image: "Imagenes/Jeans/DSC03926.JPG", desc: 'Corte slim, denim premium y ajuste cómodo para uso diario.' },
-               { id: 38, name: 'Camiseta Selección Colombia', price: 99000, size: 'S', category: 'camisetas', image: "Imagenes/Camisetas/COLO_001.jpg", desc: 'Camiseta Selección Colombia 2024-2025 local amarilla versión jugador' },
-            { id: 39, name: 'Camiseta Selección Colombia', price: 99000, size: 'M', category: 'camisetas', image: "Imagenes/Camisetas/COLO_002.jpg", desc: 'Camiseta Selección Colombia 2024-2025 local amarilla versión jugador' },
-            { id: 40, name: 'Camiseta Selección Colombia', price: 99000, size: 'L', category: 'camisetas', image: "Imagenes/Camisetas/COLO_003.jpg", desc: 'Camiseta Selección Colombia Caballero Negra AAA 1.1 Tallas S-M-L-XL Full Calidad ' },
-            { id: 3, name: 'Jean Mom Fit Light Blue', price: 129900, size: '32', category: 'jeans', image: "Imagenes/Jeans/DSC03927.JPG", desc: 'Corte slim, denim premium y ajuste cómodo para uso diario.' },
-            { id: 41, name: 'Set X 4 Boxer Multicolor Calvin Klein', price: 150000, size: 'L', category: 'accesorios', image: "Imagenes/Accesorios/BOX_001.webp", desc: 'Set X 4 Boxer Multicolor Calvin Klein' },
-            { id: 42, name: 'Set X 4 Boxer Multicolor Calvin Klein', price: 150000, size: 'XL', category: 'accesorios', image: "Imagenes/Accesorios/BOX_002.webp", desc: 'Set X 4 Boxer Multicolor Calvin Klein' },
-            { id: 43, name: 'Set X 4 Boxer Multicolor Calvin Klein', price: 150000, size: 'M', category: 'accesorios', image: "Imagenes/Accesorios/BOX_003.jpg", desc: 'Set X 4 Boxer Multicolor Calvin Klein' },
-            { id: 44, name: 'Nike Gorra Structured Trucker Cap ', price: 150000, size: 'XL', category: 'accesorios', image: "Imagenes/Accesorios/GORRA_001.avif", desc: 'Gorra Sin Estructura Nike Dri-Fit Club Featherlight' },
-            { id: 45, name: 'Nike Gorra Structured Trucker Cap ', price: 150000, size: 'L', category: 'accesorios', image: "Imagenes/Accesorios/GORRA_002.jpg", desc: 'Gorra Sin Estructura Nike Dri-Fit Club Featherlight' },
-            { id: 46, name: 'Nike Gorra Structured Trucker Cap ', price: 150000, size: 'M', category: 'accesorios', image: "Imagenes/Accesorios/GORRA_003.jpg", desc: 'Gorra Sin Estructura Nike Dri-Fit Club Featherlight' },
-            { id: 4, name: 'Jean Skinny Negro Premium', price: 229900, size: '32', category: 'jeans', image: "Imagenes/Jeans/DSC03928.JPG", desc: 'Corte slim, denim premium y ajuste cómodo para uso diario.' },
-            { id: 5, name: 'Jean Cargo Urban Gray', price: 229900, size: '32', category: 'jeans', image: "Imagenes/Jeans/DSC03929.JPG", desc: 'Corte slim, denim premium y ajuste cómodo para uso diario.' },
-            { id: 6, name: 'Jean Slim Blue Vintage', price: 109900, size: '32', category: 'jeans', image: "Imagenes/Jeans/DSC03932.JPG", desc: 'Corte slim, denim premium y ajuste cómodo para uso diario.' },
-            { id: 7, name: 'Jean Regular Black Stone', price: 129900, size: '34', category: 'jeans', image: "Imagenes/Jeans/DSC03935.JPG", desc: 'Corte slim, denim premium y ajuste cómodo para uso diario.' },
-            { id: 8, name: 'Jean Mom Fit Indigo Soft', price: 119900, size: '32', category: 'jeans', image: "Imagenes/Jeans/DSC03936.JPG", desc: 'Corte slim, denim premium y ajuste cómodo para uso diario.' },
-            { id: 9, name: 'Jean Skinny Azul Medio', price: 129900, size: '30', category: 'jeans', image: "Imagenes/Jeans/DSC03938.JPG", desc: 'Corte slim, denim premium y ajuste cómodo para uso diario.' },
-            { id: 10, name: 'Jean Cargo Beige Urban', price: 129900, size: '36', category: 'jeans', image: "Imagenes/Jeans/DSC03939.JPG", desc: 'Corte slim, denim premium y ajuste cómodo para uso diario.' },
-            { id: 11, name: 'Jean Slim Indigo Night', price: 129900, size: '32', category: 'jeans', image: "Imagenes/Jeans/DSC03940.JPG", desc: 'Corte slim, denim premium y ajuste cómodo para uso diario.' },
-            { id: 12, name: 'Jean Regular Denim Classic', price: 129900, size: '30', category: 'jeans', image: "Imagenes/Jeans/DSC03941.JPG", desc: 'Corte slim, denim premium y ajuste cómodo para uso diario.' },
-            { id: 13, name: 'Jean Urban Slim Azul Oscuro', price: 129900, size: '34', category: 'jeans', image: "Imagenes/Jeans/DSC03942.JPG", desc: 'Corte slim, denim premium y ajuste cómodo para uso diario.' },
-            { id: 14, name: 'Jean Skinny Negro Premium', price: 129900, size: '34', category: 'jeans', image: "Imagenes/Jeans/DSC03928.JPG", desc: 'Corte slim, denim premium y ajuste cómodo para uso diario.' },
-            { id: 15, name: 'Jean Cargo Urban Gray',  price: 129900, size: '36', category: 'jeans', image: "Imagenes/Jeans/DSC03943.JPG", desc: 'Corte slim, denim premium y ajuste cómodo para uso diario.' },
-            { id: 15, name: 'Jean Urban Slim Azul Oscuro', price: 129900, size: '32', category: 'jeans', image: "Imagenes/Jeans/DSC03944.JPG", desc: 'Corte slim, denim premium y ajuste cómodo para uso diario.' },
-            { id: 16, name: 'Jean Urban Slim Azul Oscuro', price: 129900, size: '30', category: 'jeans', image: "Imagenes/Jeans/DSC03945.JPG", desc: 'Corte slim, denim premium y ajuste cómodo para uso diario.' },
-            { id: 17, name: 'Jean Skinny Negro Premium', price: 129900, size: '36', category: 'jeans', image: "Imagenes/Jeans/DSC03928.JPG", desc: 'Corte slim, denim premium y ajuste cómodo para uso diario.' },
-            { id: 18, name: 'Jean Urban Slim Azul Oscuro', price: 129900, size: '34', category: 'jeans', image: "Imagenes/Jeans/DSC03950.JPG", desc: 'Corte slim, denim premium y ajuste cómodo para uso diario.' },
-            { id: 19, name: 'Jean Cargo Beige Urban', price: 129900, size: '30', category: 'jeans', image: "Imagenes/Jeans/DSC03951.JPG", desc: 'Corte slim, denim premium y ajuste cómodo para uso diario.' },
-            { id: 20, name: 'Jean Urban Slim Azul Oscuro', price: 129900, size: '36', category: 'jeans', image: "Imagenes/Jeans/DSC03954.JPG", desc: 'Corte slim, denim premium y ajuste cómodo para uso diario.' },
-            { id: 21, name: 'Jean Regular Black Stone', price: 129900, size: '32', category: 'jeans', image: "Imagenes/Jeans/DSC03959.JPG", desc: 'Corte slim, denim premium y ajuste cómodo para uso diario.' },
-            { id: 22, name: 'Jean Urban Slim Azul Oscuro', price: 129900, size: '34', category: 'jeans', image: "Imagenes/Jeans/DSC03960.JPG", desc: 'Corte slim, denim premium y ajuste cómodo para uso diario.' },
-            { id: 23, name: 'Jean Cargo Beige Urban', price: 129900, size: '36', category: 'jeans', image: "Imagenes/Jeans/DSC03962.JPG", desc: 'Corte slim, denim premium y ajuste cómodo para uso diario.' },
-            { id: 24, name: 'Jean Urban Slim Azul Oscuro', price: 129900, size: '36', category: 'jeans', image: "Imagenes/Jeans/DSC03964.JPG", desc: 'Corte slim, denim premium y ajuste cómodo para uso diario.' },
-            { id: 25, name: 'Jean Skinny Negro Premium', price: 129900, size: '32', category: 'jeans', image: "Imagenes/Jeans/DSC03980.JPG", desc: 'Corte slim, denim premium y ajuste cómodo para uso diario.' },
-            { id: 26, name: 'Jean Urban Slim Azul Oscuro', price: 129900, size: '34', category: 'jeans', image: "Imagenes/Jeans/DSC03982.JPG", desc: 'Corte slim, denim premium y ajuste cómodo para uso diario.' },
-            { id: 27, name: 'Jean Cargo Beige Urban', price: 129900, size: '36', category: 'jeans', image: "Imagenes/Jeans/DSC03984.JPG", desc: 'Corte slim, denim premium y ajuste cómodo para uso diario.' },
-            { id: 28, name: 'Jean Urban Slim Azul Oscuro', price: 129900, size: '30', category: 'jeans', image: "Imagenes/Jeans/DSC03986.JPG", desc: 'Corte slim, denim premium y ajuste cómodo para uso diario.' },
-            { id: 29, name: 'Jean Regular Black Stone', price: 129900, size: '34', category: 'jeans', image: "Imagenes/Jeans/DSC03988.JPG", desc: 'Corte slim, denim premium y ajuste cómodo para uso diario.' },
-            { id: 30, name: 'Jean Urban Slim Azul Oscuro', price: 129900, size: '36', category: 'jeans', image: "Imagenes/Jeans/DSC03989.JPG", desc: 'Corte slim, denim premium y ajuste cómodo para uso diario.' },
-            { id: 31, name: 'Jean Regular Black Stone', price: 129900, size: '30', category: 'jeans', image: "Imagenes/Jeans/DSC03993.JPG", desc: 'Corte slim, denim premium y ajuste cómodo para uso diario.' },
-            { id: 32, name: 'Jean Skinny Negro Premium', price: 129900, size: '32', category: 'jeans', image: "Imagenes/Jeans/DSC03994.JPG", desc: 'Corte slim, denim premium y ajuste cómodo para uso diario.' },
-            { id: 33, name: 'Jean Urban Slim Azul Oscuro', price: 129900, size: '36', category: 'jeans', image: "Imagenes/Jeans/DSC04003.JPG", desc: 'Corte slim, denim premium y ajuste cómodo para uso diario.' },
-            { id: 34, name: 'Jean Regular Black Stone', price: 129900, size: '34', category: 'jeans', image: "Imagenes/Jeans/DSC04007.JPG", desc: 'Corte slim, denim premium y ajuste cómodo para uso diario.' },
-            { id: 35, name: 'Jean Urban Slim Azul Oscuro', price: 129900, size: '30', category: 'jeans', image: "Imagenes/Jeans/DSC04011.JPG", desc: 'Corte slim, denim premium y ajuste cómodo para uso diario.' },
-            { id: 36, name: 'Jean Urban Slim Azul Oscuro', price: 129900, size: '32', category: 'jeans', image: "Imagenes/Jeans/DSC04013.JPG", desc: 'Corte slim, denim premium y ajuste cómodo para uso diario.' },
-            { id: 37, name: 'Jean Cargo Urban Gray', price: 129900, size: '30', category: 'jeans', image: "Imagenes/Jeans/DSC04022.JPG", desc: 'Corte slim, denim premium y ajuste cómodo para uso diario.' }
+            { id: 1, name: 'Jean Urban Slim Azul Oscuro',  size: '36', category: 'jeans', image: "Imagenes/Jeans/DSC03925.JPG", desc: 'Corte slim, denim premium y ajuste cómodo para uso diario.' },
+            { id: 2, name: 'Jean Regular Indigo Clásico',  size: '30', category: 'jeans', image: "Imagenes/Jeans/DSC03926.JPG", desc: 'Corte slim, denim premium y ajuste cómodo para uso diario.' },
+               { id: 38, name: 'Camiseta Selección Colombia',  size: 'S', category: 'camisetas', image: "Imagenes/Camisetas/COLO_001.jpg", desc: 'Camiseta deportiva todas las tallas disponibles excelente material 100% garantizado' },
+            { id: 39, name: 'Camiseta Selección Colombia',  size: 'M', category: 'camisetas', image: "Imagenes/Camisetas/COLO_002.jpg", desc: 'Camiseta deportiva todas las tallas disponibles excelente material 100% garantizado' },
+            { id: 40, name: 'Camiseta Selección Colombia',  size: 'L', category: 'camisetas', image: "Imagenes/Camisetas/COLO_003.jpg", desc: 'Camiseta deportiva todas las tallas disponibles excelente material 100% garantizado ' },
+            { id: 3, name: 'Jean Mom Fit Light Blue',  size: '32', category: 'jeans', image: "Imagenes/Jeans/DSC03927.JPG", desc: 'Corte slim, denim premium y ajuste cómodo para uso diario.' },
+            { id: 41, name: 'Set X 4 Boxer Multicolor Calvin Klein',  size: 'L', category: 'accesorios', image: "Imagenes/Accesorios/BOX_001.webp", desc: 'Set X 4 Boxer Multicolor Calvin Klein' },
+            { id: 42, name: 'Set X 4 Boxer Multicolor Calvin Klein',  size: 'XL', category: 'accesorios', image: "Imagenes/Accesorios/BOX_002.webp", desc: 'Set X 4 Boxer Multicolor Calvin Klein' },
+            { id: 43, name: 'Set X 4 Boxer Multicolor Calvin Klein',  size: 'M', category: 'accesorios', image: "Imagenes/Accesorios/BOX_003.jpg", desc: 'Set X 4 Boxer Multicolor Calvin Klein' },
+            { id: 44, name: 'Nike Gorra Structured Trucker Cap ',  size: 'XL', category: 'accesorios', image: "Imagenes/Accesorios/GORRA_001.avif", desc: 'Gorra Sin Estructura Nike Dri-Fit Club Featherlight' },
+            { id: 45, name: 'Nike Gorra Structured Trucker Cap ',  size: 'L', category: 'accesorios', image: "Imagenes/Accesorios/GORRA_002.jpg", desc: 'Gorra Sin Estructura Nike Dri-Fit Club Featherlight' },
+            { id: 46, name: 'Nike Gorra Structured Trucker Cap ',  size: 'M', category: 'accesorios', image: "Imagenes/Accesorios/GORRA_003.jpg", desc: 'Gorra Sin Estructura Nike Dri-Fit Club Featherlight' },
+            { id: 4, name: 'Jean Skinny Negro Premium',  size: '32', category: 'jeans', image: "Imagenes/Jeans/DSC03928.JPG", desc: 'Corte slim, denim premium y ajuste cómodo para uso diario.' },
+            { id: 5, name: 'Jean Cargo Urban Gray', size: '32', category: 'jeans', image: "Imagenes/Jeans/DSC03929.JPG", desc: 'Corte slim, denim premium y ajuste cómodo para uso diario.' },
+            { id: 6, name: 'Jean Slim Blue Vintage',  size: '32', category: 'jeans', image: "Imagenes/Jeans/DSC03932.JPG", desc: 'Corte slim, denim premium y ajuste cómodo para uso diario.' },
+            { id: 7, name: 'Jean Regular Black Stone',  size: '34', category: 'jeans', image: "Imagenes/Jeans/DSC03935.JPG", desc: 'Corte slim, denim premium y ajuste cómodo para uso diario.' },
+            { id: 8, name: 'Jean Mom Fit Indigo Soft',  size: '32', category: 'jeans', image: "Imagenes/Jeans/DSC03936.JPG", desc: 'Corte slim, denim premium y ajuste cómodo para uso diario.' },
+            { id: 9, name: 'Jean Skinny Azul Medio',  size: '30', category: 'jeans', image: "Imagenes/Jeans/DSC03938.JPG", desc: 'Corte slim, denim premium y ajuste cómodo para uso diario.' },
+            { id: 10, name: 'Jean Cargo Beige Urban',  size: '36', category: 'jeans', image: "Imagenes/Jeans/DSC03939.JPG", desc: 'Corte slim, denim premium y ajuste cómodo para uso diario.' },
+            { id: 11, name: 'Jean Slim Indigo Night',  size: '32', category: 'jeans', image: "Imagenes/Jeans/DSC03940.JPG", desc: 'Corte slim, denim premium y ajuste cómodo para uso diario.' },
+            { id: 12, name: 'Jean Regular Denim Classic',  size: '30', category: 'jeans', image: "Imagenes/Jeans/DSC03941.JPG", desc: 'Corte slim, denim premium y ajuste cómodo para uso diario.' },
+            { id: 13, name: 'Jean Urban Slim Azul Oscuro',  size: '34', category: 'jeans', image: "Imagenes/Jeans/DSC03942.JPG", desc: 'Corte slim, denim premium y ajuste cómodo para uso diario.' },
+            { id: 14, name: 'Jean Skinny Negro Premium',  size: '34', category: 'jeans', image: "Imagenes/Jeans/DSC03928.JPG", desc: 'Corte slim, denim premium y ajuste cómodo para uso diario.' },
+            { id: 15, name: 'Jean Cargo Urban Gray',   size: '36', category: 'jeans', image: "Imagenes/Jeans/DSC03943.JPG", desc: 'Corte slim, denim premium y ajuste cómodo para uso diario.' },
+            { id: 15, name: 'Jean Urban Slim Azul Oscuro',  size: '32', category: 'jeans', image: "Imagenes/Jeans/DSC03944.JPG", desc: 'Corte slim, denim premium y ajuste cómodo para uso diario.' },
+            { id: 16, name: 'Jean Urban Slim Azul Oscuro',  size: '30', category: 'jeans', image: "Imagenes/Jeans/DSC03945.JPG", desc: 'Corte slim, denim premium y ajuste cómodo para uso diario.' },
+            { id: 17, name: 'Jean Skinny Negro Premium',  size: '36', category: 'jeans', image: "Imagenes/Jeans/DSC03928.JPG", desc: 'Corte slim, denim premium y ajuste cómodo para uso diario.' },
+            { id: 18, name: 'Jean Urban Slim Azul Oscuro',  size: '34', category: 'jeans', image: "Imagenes/Jeans/DSC03950.JPG", desc: 'Corte slim, denim premium y ajuste cómodo para uso diario.' },
+            { id: 19, name: 'Jean Cargo Beige Urban',  size: '30', category: 'jeans', image: "Imagenes/Jeans/DSC03951.JPG", desc: 'Corte slim, denim premium y ajuste cómodo para uso diario.' },
+            { id: 20, name: 'Jean Urban Slim Azul Oscuro',  size: '36', category: 'jeans', image: "Imagenes/Jeans/DSC03954.JPG", desc: 'Corte slim, denim premium y ajuste cómodo para uso diario.' },
+            { id: 21, name: 'Jean Regular Black Stone',  size: '32', category: 'jeans', image: "Imagenes/Jeans/DSC03959.JPG", desc: 'Corte slim, denim premium y ajuste cómodo para uso diario.' },
+            { id: 22, name: 'Jean Urban Slim Azul Oscuro',  size: '34', category: 'jeans', image: "Imagenes/Jeans/DSC03960.JPG", desc: 'Corte slim, denim premium y ajuste cómodo para uso diario.' },
+            { id: 23, name: 'Jean Cargo Beige Urban',  size: '36', category: 'jeans', image: "Imagenes/Jeans/DSC03962.JPG", desc: 'Corte slim, denim premium y ajuste cómodo para uso diario.' },
+            { id: 24, name: 'Jean Urban Slim Azul Oscuro',  size: '36', category: 'jeans', image: "Imagenes/Jeans/DSC03964.JPG", desc: 'Corte slim, denim premium y ajuste cómodo para uso diario.' },
+            { id: 25, name: 'Jean Skinny Negro Premium',  size: '32', category: 'jeans', image: "Imagenes/Jeans/DSC03980.JPG", desc: 'Corte slim, denim premium y ajuste cómodo para uso diario.' },
+            { id: 26, name: 'Jean Urban Slim Azul Oscuro',  size: '34', category: 'jeans', image: "Imagenes/Jeans/DSC03982.JPG", desc: 'Corte slim, denim premium y ajuste cómodo para uso diario.' },
+            { id: 27, name: 'Jean Cargo Beige Urban',  size: '36', category: 'jeans', image: "Imagenes/Jeans/DSC03984.JPG", desc: 'Corte slim, denim premium y ajuste cómodo para uso diario.' },
+            { id: 28, name: 'Jean Urban Slim Azul Oscuro',  size: '30', category: 'jeans', image: "Imagenes/Jeans/DSC03986.JPG", desc: 'Corte slim, denim premium y ajuste cómodo para uso diario.' },
+            { id: 29, name: 'Jean Regular Black Stone',  size: '34', category: 'jeans', image: "Imagenes/Jeans/DSC03988.JPG", desc: 'Corte slim, denim premium y ajuste cómodo para uso diario.' },
+            { id: 30, name: 'Jean Urban Slim Azul Oscuro',  size: '36', category: 'jeans', image: "Imagenes/Jeans/DSC03989.JPG", desc: 'Corte slim, denim premium y ajuste cómodo para uso diario.' },
+            { id: 31, name: 'Jean Regular Black Stone',  size: '30', category: 'jeans', image: "Imagenes/Jeans/DSC03993.JPG", desc: 'Corte slim, denim premium y ajuste cómodo para uso diario.' },
+            { id: 32, name: 'Jean Skinny Negro Premium',  size: '32', category: 'jeans', image: "Imagenes/Jeans/DSC03994.JPG", desc: 'Corte slim, denim premium y ajuste cómodo para uso diario.' },
+            { id: 33, name: 'Jean Urban Slim Azul Oscuro',  size: '36', category: 'jeans', image: "Imagenes/Jeans/DSC04003.JPG", desc: 'Corte slim, denim premium y ajuste cómodo para uso diario.' },
+            { id: 34, name: 'Jean Regular Black Stone',  size: '34', category: 'jeans', image: "Imagenes/Jeans/DSC04007.JPG", desc: 'Corte slim, denim premium y ajuste cómodo para uso diario.' },
+            { id: 35, name: 'Jean Urban Slim Azul Oscuro',  size: '30', category: 'jeans', image: "Imagenes/Jeans/DSC04011.JPG", desc: 'Corte slim, denim premium y ajuste cómodo para uso diario.' },
+            { id: 36, name: 'Jean Urban Slim Azul Oscuro',  size: '32', category: 'jeans', image: "Imagenes/Jeans/DSC04013.JPG", desc: 'Corte slim, denim premium y ajuste cómodo para uso diario.' },
+            { id: 37, name: 'Jean Cargo Urban Gray',  size: '30', category: 'jeans', image: "Imagenes/Jeans/DSC04022.JPG", desc: 'Corte slim, denim premium y ajuste cómodo para uso diario.' }
          
             
 
@@ -1157,7 +1153,6 @@
     const cartItemsCount = document.getElementById('cartItemsCount');
     const floatingCartCount = document.getElementById('floatingCartCount');
     const summaryUnits = document.getElementById('summaryUnits');
-    const summaryTotal = document.getElementById('summaryTotal');
     const searchInput = document.getElementById('searchInput');
     const categoryFilter = document.getElementById('categoryFilter');
     const checkoutForm = document.getElementById('checkoutForm');
@@ -1223,7 +1218,7 @@
       });
 
       productsGrid.innerHTML = filtered.map(product => {
-        const whatsappText = encodeURIComponent(`Hola, estoy interesado en este producto de Ligero Urban:\n\n*${product.name}*\nPrecio: ${formatCOP(product.price)}`);
+        const whatsappText = encodeURIComponent(`Hola, estoy interesado en este producto de Ligero Urban:\n\n*${product.name}*`);
         return `
           <article class="card">
             <div class="card-image">
@@ -1234,9 +1229,6 @@
               <h3 class="card-title">${product.name}</h3>
               <p class="card-desc">${product.desc}</p>
               <p class="card-size"><strong>Talla:</strong> ${product.size}</p>
-              <div class="price-row">
-                <div class="price">${formatCOP(product.price)}</div>
-              </div>
               <div class="card-actions">
                 <a class="btn btn-whatsapp" target="_blank" rel="noopener" href="https://wa.me/${WHATSAPP_NUMBER}?text=${whatsappText}">WhatsApp</a>
                 <button class="btn btn-primary" type="button" onclick="addToCart(${product.id})">Agregar</button>
@@ -1280,39 +1272,39 @@
 
     function getCartTotals() {
       const units = cart.reduce((acc, item) => acc + item.quantity, 0);
-      const total = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
-      return { units, total };
+      return { units };
     }
 
     function renderCart() {
-      const { units, total } = getCartTotals();
+      const { units } = getCartTotals();
 
       cartItemsCount.textContent = units;
       floatingCartCount.textContent = units;
       summaryUnits.textContent = units;
-      summaryTotal.textContent = formatCOP(total);
+  
 
       if (!cart.length) {
         cartList.innerHTML = '<div class="empty-state">Tu carrito está vacío. Agrega uno o varios jeans para continuar.</div>';
         return;
       }
 
-      cartList.innerHTML = cart.map(item => `
+     cartList.innerHTML = cart.map(item => `
         <div class="cart-item">
           <img src="${item.image}" alt="${item.name}">
           <div>
             <h4>${item.name}</h4>
-            <p>${formatCOP(item.price)} · ${item.category}</p>
+            <p><strong>Talla:</strong> ${item.size || 'No especificada'}</p>
+
             <div class="qty-row">
               <div class="qty-controls">
                 <button type="button" onclick="changeQuantity(${item.id}, -1)">−</button>
                 <strong>${item.quantity}</strong>
                 <button type="button" onclick="changeQuantity(${item.id}, 1)">+</button>
               </div>
-              <strong>${formatCOP(item.price * item.quantity)}</strong>
-            </div>
-            <div style="margin-top:10px;">
-              <button class="item-remove" type="button" onclick="removeItem(${item.id})">Quitar producto</button>
+
+              <button class="item-remove" type="button" onclick="removeItem(${item.id})">
+                Quitar producto
+              </button>
             </div>
           </div>
         </div>
@@ -1378,13 +1370,13 @@
       const email = document.getElementById('email').value.trim();
       const notes = document.getElementById('notes').value.trim();
 
-      const { units, total } = getCartTotals();
+      const { units } = getCartTotals();
 
       const productLines = cart.map((item, index) => {
-        return `${index + 1}. ${item.name}%0A   Cantidad: ${item.quantity}%0A   Valor unitario: ${formatCOP(item.price)}%0A   Subtotal: ${formatCOP(item.price * item.quantity)}`;
-      }).join('%0A%0A');
+        return `${index + 1}. ${item.name}%0A   Cantidad: ${item.quantity}%0A `;
+      }).join('%0A');
 
-      const message = `Hola, quiero realizar este pedido en *Ligero Urban*:%0A%0A*PRODUCTOS*%0A${productLines}%0A%0A*RESUMEN*%0AUnidades: ${units}%0ATotal: ${formatCOP(total)}%0A%0A*DATOS DE ENVÍO*%0ANombre: ${firstName} ${lastName}%0ADirección: ${address}%0ACiudad: ${city}%0ATeléfono: ${phone}%0ACorreo: ${email}%0AObservaciones: ${notes || 'Ninguna'}`;
+      const message = `Hola, quiero realizar este pedido en *Ligero Urban*:%0A%0A*PRODUCTOS*%0A${productLines}%0A%0A*RESUMEN*%0AUnidades: ${units}%0A%0A*DATOS DE ENVÍO*%0ANombre: ${firstName} ${lastName}%0ADirección: ${address}%0ACiudad: ${city}%0ATeléfono: ${phone}%0ACorreo: ${email}%0AObservaciones: ${notes || 'Ninguna'}`;
 
       const whatsappURL = `https://wa.me/${WHATSAPP_NUMBER}?text=${message}`;
       window.open(whatsappURL, '_blank');
